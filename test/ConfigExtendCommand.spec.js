@@ -156,5 +156,11 @@ describe('ConfigExtendCommand', () => {
                 bar: 'bar1'
             });
         });
+
+        it('should fail gracefully when file not found', () => {
+            config.extendOptional('invalid-config-file');
+
+            expect(config.toObject()).toEqual({});
+        });
     });
 });

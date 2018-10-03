@@ -172,6 +172,12 @@ class Config {
         return ConfigCommandInvoker.invoke(commandNames.EXTEND, this, ...values);
     }
 
+    extendOptional(...values) {
+        try {
+            return ConfigCommandInvoker.invoke(commandNames.EXTEND, this, ...values);
+        } catch (e) {}
+    }
+
     /**
      * @example
      * import Config from 'webpack-config';
